@@ -45,8 +45,8 @@ Drop in an access_log for nginx to use stdout.
 %build
 
 %install
-%{__install} -D %{SOURCE0} %{buildroot}%{_sysconfdir}/httpd/conf.d/
-%{__install} -D %{SOURCE1} %{buildroot}%{_sysconfdir}/nginx/conf.d/
+%{__install} -D %{SOURCE0} %{buildroot}%{_sysconfdir}/httpd/conf.d/%{SOURCE0}
+%{__install} -D %{SOURCE1} %{buildroot}%{_sysconfdir}/nginx/conf.d/%{SOURCE1}
 
 %post apache-httpd
 systemctl condrestart httpd.service
