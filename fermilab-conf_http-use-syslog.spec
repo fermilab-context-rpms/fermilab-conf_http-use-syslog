@@ -5,6 +5,7 @@ Release:	1%{?dist}
 Group:		Fermilab
 License:	MIT
 URL:		https://github.com/fermilab-context-rpms/fermilab-conf_http-use-syslog
+Summary:	Send http/s access logs to stdout
 
 Source0:	30-apache-httpd-stdout-log.conf
 Source1:	30-nginx-stdout-log.conf
@@ -60,7 +61,7 @@ systemctl condrestart nginx.service
 %defattr(0644,root,root,0755)
 %{_sysconfdir}/httpd/conf.d/*
 
-%files
+%files nginx
 %defattr(0644,root,root,0755)
 %{_sysconfdir}/nginx/conf.d/*
 
