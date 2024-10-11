@@ -1,6 +1,6 @@
 Name:		fermilab-conf_http-use-syslog
 Version:	2.0
-Release:	1%{?dist}
+Release:	2%{?dist}
 
 Group:		Fermilab
 License:	MIT
@@ -45,8 +45,8 @@ Drop in an access_log for nginx to use stdout.
 %build
 
 %install
-%{__install} -D %{SOURCE0} %{buildroot}%{_sysconfdir}/httpd/conf.d/%{SOURCE0}
-%{__install} -D %{SOURCE1} %{buildroot}%{_sysconfdir}/nginx/conf.d/%{SOURCE1}
+%{__install} -D %{SOURCE0} %{buildroot}%{_sysconfdir}/httpd/conf.d/30-apache-httpd-stdout-log.conf
+%{__install} -D %{SOURCE1} %{buildroot}%{_sysconfdir}/nginx/conf.d/30-nginx-stdout-log.conf
 
 %post apache-httpd
 systemctl condrestart httpd.service
@@ -66,7 +66,10 @@ systemctl condrestart nginx.service
 %{_sysconfdir}/nginx/conf.d/*
 
 %changelog
-* Wed Sep 18 2024 Pat Riehecky <riehecky@fnal.gov> 2.0
+* Fri Oct 11 2024 Pat Riehecky <riehecky@fnal.gov> 2.0-2
+- Fix filename expansion error
+
+* Wed Sep 18 2024 Pat Riehecky <riehecky@fnal.gov> 2.0-1
 - Update to use new name format
 - Convert apache-httpd to use GlobalLog
 - Add nginx config
