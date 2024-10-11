@@ -1,6 +1,6 @@
 Name:		fermilab-conf_http-use-syslog
 Version:	2.0
-Release:	2%{?dist}
+Release:	3%{?dist}
 
 Group:		Fermilab
 License:	MIT
@@ -66,6 +66,9 @@ systemctl condrestart nginx.service
 %{_sysconfdir}/nginx/conf.d/*
 
 %changelog
+* Fri Oct 11 2024 Pat Riehecky <riehecky@fnal.gov> 2.0-3
+- selinux/systemd locks down httpd a lot, use cat :(
+
 * Fri Oct 11 2024 Pat Riehecky <riehecky@fnal.gov> 2.0-2
 - Fix filename expansion error
 
