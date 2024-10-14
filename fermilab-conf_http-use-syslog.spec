@@ -1,6 +1,6 @@
 Name:		fermilab-conf_http-use-syslog
 Version:	2.0
-Release:	3%{?dist}
+Release:	4%{?dist}
 
 Group:		Fermilab
 License:	MIT
@@ -8,7 +8,7 @@ URL:		https://github.com/fermilab-context-rpms/fermilab-conf_http-use-syslog
 Summary:	Send http/s access logs to stdout
 
 Source0:	30-apache-httpd-stdout-log.conf
-Source1:	30-nginx-stdout-log.conf
+Source1:	30-nginx-syslog.conf
 
 BuildArch:	noarch
 Requires:	systemd
@@ -66,6 +66,9 @@ systemctl condrestart nginx.service
 %{_sysconfdir}/nginx/conf.d/*
 
 %changelog
+* Mon Oct 14 2024 Pat Riehecky <riehecky@fnal.gov> 2.0-4
+- Fixup nginx bits
+
 * Fri Oct 11 2024 Pat Riehecky <riehecky@fnal.gov> 2.0-3
 - selinux/systemd locks down httpd a lot, use cat :(
 
