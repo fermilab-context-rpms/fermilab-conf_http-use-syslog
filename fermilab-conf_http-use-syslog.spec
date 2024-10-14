@@ -7,7 +7,7 @@ License:	MIT
 URL:		https://github.com/fermilab-context-rpms/fermilab-conf_http-use-syslog
 Summary:	Send http/s access logs to stdout
 
-Source0:	30-apache-httpd-stdout-log.conf
+Source0:	30-apache-httpd-syslog.conf
 Source1:	30-nginx-syslog.conf
 
 BuildArch:	noarch
